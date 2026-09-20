@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="微喵官网 - 专注于智能宠物陪伴与生活管理的综合服务平台。提供智能喂食器、宠物健康监测、社交互动及社区服务，为您的爱宠打造更智能的生活方式。">
+    <meta name="keywords" content="微喵官网, 智能宠物, 宠物喂食器, 宠物健康, 智能宠物生活">
+    <title>微喵官网-智能宠物陪伴与生活管理平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #FF9A9E;
+            --primary-dark: #F67075;
+            --secondary-color: #667eea;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #F9F9F9;
+            --bg-white: #FFFFFF;
+            --spacing-unit: 8px;
+            --container-width: 1200px;
+            --radius-md: 12px;
+            --radius-lg: 24px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+            --shadow-hover: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            outline: none;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-dark);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after, .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 15px;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 154, 158, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 154, 158, 0.6);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 80px 0;
+            overflow: hidden;
+            background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--text-main);
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-dark);
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-hover);
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--bg-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 18px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-body);
+            padding: 40px 30px;
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid transparent;
+        }
+
+        .feature-card:hover {
+            background: white;
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+            border-color: rgba(255, 154, 158, 0.2);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #fff0f1, #e0e7ff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 28px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        /* Product Showcase */
+        .products {
+            padding: 80px 0;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+        }
+
+        .product-img-wrapper {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-tag {
+            font-size: 12px;
+            color: var(--secondary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .product-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .product-desc {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 16px;
+        }
+
+        .price {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .price span {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+        /* Community / Usage */
+        .community {
+            padding: 80px 0;
+            background-color: var(--bg-white);
+        }
+
+        .community-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .community-post {
+            background: var(--bg-body);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ddd;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .post-content h4 {
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .post-content p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .post-meta {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .sidebar-widget {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            color: white;
+            text-align: center;
+        }
+
+        .sidebar-widget h3 {
+            margin-bottom: 16px;
+            font-size: 20px;
+        }
+
+        .sidebar-widget p {
+            font-size: 14px;
+            margin-bottom: 24px;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: #bdc3c7;
+            margin-top: 16px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #95a5a6;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                height: auto;
+                padding: 15px 0;
+                flex-wrap: wrap;
+            }
+
+            .nav-menu {
+                display: none; /* Simplified for single file, usually hamburger */
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .hero-text p {
+                margin: 0 auto 32px;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .community-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>微喵</span> 官网
+            </a>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#products">智能硬件</a>
+                <a href="#services">云服务</a>
+                <a href="#community">养宠社区</a>
+                <a href="#about">关于我们</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">下载App</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>重新定义<span>智能养宠</span>生活</h1>
+                    <p>微喵为您提供全方位的智能宠物管理解决方案。从远程喂食到健康监测，让爱宠陪伴更轻松、更安心。</p>
+                    <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: flex-start;">
+                        <button class="btn btn-primary">立即体验</button>
+                        <button class="btn btn-outline">观看演示</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- 使用 Picsum 生成占位图，模拟宠物与科技结合的场景 -->
+                    <img src="https://picsum.photos/seed/pettech/600/400" alt="微喵智能宠物陪伴系统演示" width="600" height="400">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>核心功能亮点</h2>
+                    <p>科技赋能，守护每一份陪伴</p>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🍽️</div>
+                        <h3>远程智能喂食</h3>
+                        <p>支持手机APP远程控制，定时定量投喂，解决出差、加班无暇照顾宠物的难题。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👀</div>
+                        <h3>24小时云监控</h3>
+                        <p>高清夜视摄像头，双向语音对讲，随时查看爱宠状态，不错过任何精彩瞬间。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">❤️</div>
+                        <h3>健康数据追踪</h3>
+                        <p>自动记录饮水、进食数据，生成健康周报，及时发现宠物健康异常。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🐱</div>
+                        <h3>专属宠物档案</h3>
+                        <p>为每只宠物建立独立数字档案，记录生日、疫苗、体重等关键信息。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="products">
+            <div class="container">
+                <div class="section-header">
+                    <h2>热门智能产品</h2>
+                    <p>精选硬件，打造全场景养宠生态</p>
+                </div>
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <article class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="https://picsum.photos/seed/feeder/400/300" alt="微喵智能自动喂食器" width="400" height="300">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-tag">核心产品</span>
+                            <h3 class="product-title">微喵智能自动喂食器</h3>
+                            <p class="product-desc">大容量存储，支持APP远程投喂，多种喂食模式，兼容猫粮、狗粮。</p>
+                            <div class="product-footer">
+                                <div class="price">¥299<span>/台</span></div>
+                                <button class="btn btn-outline" style="padding: 8px 16px; font-size: 14px;">查看详情</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 2 -->
+                    <article class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="https://picsum.photos/seed/camera/400/300" alt="微喵高清宠物摄像头" width="400" height="300">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-tag">监控设备</span>
+                            <h3 class="product-title">微喵高清云台摄像头</h3>
+                            <p class="product-desc">1080P高清画质，360度旋转，双向语音通话，智能移动侦测报警。</p>
+                            <div class="product-footer">
+                                <div class="price">¥399<span>/台</span></div>
+                                <button class="btn btn-outline" style="padding: 8px 16px; font-size: 14px;">查看详情</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 3 -->
+                    <article class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="https://picsum.photos/seed/litter/400/300" alt="智能猫砂盆伴侣" width="400" height="300">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-tag">健康监测</span>
+                            <h3 class="product-title">智能猫砂盆伴侣</h3>
+                            <p class="product-desc">自动称重，尿液检测，健康数据实时上传云端，守护猫咪泌尿健康。</p>
+                            <div class="product-footer">
+                                <div class="price">¥499<span>/台</span></div>
+                                <button class="btn btn-outline" style="padding: 8px 16px; font-size: 14px;">查看详情</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community" class="community">
+            <div class="container">
+                <div class="section-header">
+                    <h2>微喵养宠社区</h2>
+                    <p>连接千万铲屎官，分享养宠心得</p>
+                </div>
+                <div class="community-layout">
+                    <div class="community-feed">
+                        <div class="community-post">
+                            <img src="https://picsum.photos/seed/cat1/100/100" alt="用户头像" class="avatar">
+                            <div class="post-content">
+                                <h4>喵星人控</h4>
+                                <p>入手了微喵智能喂食器，出差一周回来猫粮还剩一半，太省心了！推荐给所有上班族。</p>
+                                <div class="post-meta">2小时前 · 已被 128 人点赞</div>
+                            </div>
+                        </div>
+                        <div class="community-post">
+                            <img src="https://picsum.photos/seed/user2/100/100" alt="用户头像" class="avatar">
+                            <div class="post-content">
+                                <h4>汪星人管家</h4>
+                                <p>摄像头功能真的很强大，昨晚加班晚了，回家还能听到狗狗在门口叫，通过语音安抚了它。</p>
+                                <div class="post-meta">5小时前 · 已被 86 人点赞</div>
+                            </div>
+                        </div>
+                        <div class="community-post">
+                            <img src="https://picsum.photos/seed/user3/100/100" alt="用户头像" class="avatar">
+                            <div class="post-content">
+                                <h4>新手养宠指南</h4>
+                                <p>分享一下如何利用微喵APP记录猫咪的疫苗时间和体重变化，这个功能真的太实用了。</p>
+                                <div class="post-meta">1天前 · 已被 342 人点赞</div>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="sidebar">
+                        <div class="sidebar-widget">
+                            <h3>加入微喵大家庭</h3>
+                            <p>注册会员即可获得30天会员体验，解锁更多高级功能。</p>
+                            <button class="btn" style="background: white; color: #667eea;">立即注册</button>
+                        </div>
+                        <div style="margin-top: 24px; background: white; padding: 20px; border-radius: 12px; box-shadow: var(--shadow-sm);">
+                            <h4 style="margin-bottom: 12px;">热门话题</h4>
+                            <ul style="font-size: 14px; color: var(--text-light);">
+                                <li style="margin-bottom: 8px;">#猫咪挑食怎么办</li>
+                                <li style="margin-bottom: 8px;">#新手养狗指南</li>
+                                <li style="margin-bottom: 8px;">#智能设备推荐</li>
+                                <li>#宠物心理健康</li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo" style="color: white; font-size: 20px;">
+                        <span>微喵</span> 官网
+                    </a>
+                    <p>微喵致力于通过物联网技术，为现代家庭提供更智能、更科学的宠物生活管理方案，让爱与科技同行。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>产品服务</h4>
+                    <ul>
+                        <li><a href="#">智能喂食器</a></li>
+                        <li><a href="#">宠物摄像头</a></li>
+                        <li><a href="#">智能猫砂盆</a></li>
+                        <li><a href="#">APP下载</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">品牌故事</a></li>
+                        <li><a href="#">发展历程</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助支持</h4>
+                    <ul>
+                        <li><a href="#">使用指南</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">售后政策</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 微喵官网 版权所有. 本页面仅为设计演示，不涉及真实商业交易。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
