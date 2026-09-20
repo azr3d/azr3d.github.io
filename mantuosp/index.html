@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>曼陀sp - 专业数据安全与系统管理解决方案</title>
+    <meta name="description" content="曼陀sp提供企业级的数据安全防护与系统管理解决方案，包括数据加密、权限管控、操作审计及合规性管理，助力企业构建安全可控的数字工作环境。">
+    <meta name="keywords" content="曼陀sp, 数据安全, 系统管理, 权限控制, 企业软件, 数据防泄漏">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --accent-hover: #2980b9;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e1e4e8;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            border: 1px solid var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Workflow Section */
+        .workflow {
+            background-color: #eef2f5;
+            padding: 80px 0;
+        }
+
+        .workflow-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 40px;
+        }
+
+        .workflow-steps::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #d1d9e6;
+            z-index: 0;
+        }
+
+        .step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            flex: 1;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 20px;
+            font-size: 1.2rem;
+        }
+
+        .step h4 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .step p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            padding: 0 10px;
+        }
+
+        /* Comparison Section */
+        .comparison {
+            padding: 80px 0;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--card-bg);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .comparison-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: var(--primary-color);
+            width: 25%;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .cross-icon {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background-color: #eef2f5;
+            padding: 80px 0;
+        }
+
+        .faq-item {
+            background-color: var(--card-bg);
+            margin-bottom: 15px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 20px;
+        }
+
+        .faq-answer p {
+            padding-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .cta-section .btn {
+            background-color: white;
+            color: var(--primary-color);
+            border: none;
+        }
+
+        .cta-section .btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: #bdc3c7;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+
+            nav ul {
+                margin: 15px 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .workflow-steps {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .workflow-steps::before {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <span>曼陀</span>sp
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#features">核心功能</a></li>
+                    <li><a href="#workflow">应用场景</a></li>
+                    <li><a href="#comparison">产品对比</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.9rem;">登录</a>
+                <a href="#" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.9rem;">免费试用</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>构建安全可控的<br>企业级数据工作流</h1>
+                <p>曼陀sp为您提供全方位的数据安全防护与系统管理工具，从权限管控到操作审计，全方位保障企业核心数据资产安全。</p>
+                <div class="hero-buttons">
+                    <a href="#comparison" class="btn btn-primary">了解产品优势</a>
+                    <a href="#workflow" class="btn btn-outline" style="color: white; border-color: white;">查看解决方案</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>核心安全功能</h2>
+                    <p>基于企业级架构，提供全面的数据治理与安全管理能力</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>细粒度权限管控</h3>
+                        <p>支持基于角色、部门及业务属性的精细化权限分配，确保数据访问最小化原则，防止越权访问。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">📝</div>
+                        <h3>全链路操作审计</h3>
+                        <p>对数据增删改查、文件下载、打印等关键操作进行实时记录与日志留存，满足合规审计需求。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>数据防泄漏保护</h3>
+                        <p>集成水印、脱敏、外发管控技术，有效阻断敏感数据通过邮件、IM等渠道非法外泄。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <h3>集中式系统管理</h3>
+                        <p>统一管理所有终端设备的安全策略，支持策略一键下发、远程部署与状态监控。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>可视化安全报表</h3>
+                        <p>提供多维度的安全态势看板，帮助管理员快速识别风险点，优化安全策略配置。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">⚙️</div>
+                        <h3>灵活的定制接口</h3>
+                        <p>开放标准API接口，可无缝集成到现有OA、ERP或业务系统中，实现统一管控。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workflow Section -->
+        <section id="workflow" class="workflow">
+            <div class="container">
+                <div class="section-title">
+                    <h2>应用场景</h2>
+                    <p>覆盖金融、政务、制造等多个行业的典型应用场景</p>
+                </div>
+                <div class="workflow-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h4>策略制定</h4>
+                        <p>根据业务需求设定数据分类分级标准与访问控制策略。</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h4>终端部署</h4>
+                        <p>在员工终端安装客户端，确保安全组件实时在线运行。</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h4>实时监控</h4>
+                        <p>系统实时监控数据流转，对违规操作进行阻断或告警。</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h4>合规审计</h4>
+                        <p>定期生成审计报告，满足内外部合规检查与责任追溯。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section id="comparison" class="comparison">
+            <div class="container">
+                <div class="section-title">
+                    <h2>曼陀sp vs 传统方案</h2>
+                    <p>为什么选择更专业的安全管理平台</p>
+                </div>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>功能特性</th>
+                            <th>传统文件加密</th>
+                            <th>曼陀sp 综合管理平台</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>权限管理粒度</td>
+                            <td>文件级别单一</td>
+                            <td class="check-icon">支持文件夹、标签、属性多维控制</td>
+                        </tr>
+                        <tr>
+                            <td>外发管控能力</td>
+                            <td class="cross-icon">依赖UKey或邮件网关</td>
+                            <td class="check-icon">内嵌外发审批、二维码扫码、剪贴板限制</td>
+                        </tr>
+                        <tr>
+                            <td>系统级策略</td>
+                            <td>仅针对文档操作</td>
+                            <td class="check-icon">覆盖终端安全、USB管控、进程防护</td>
+                        </tr>
+                        <tr>
+                            <td>合规审计报告</td>
+                            <td>原始日志难分析</td>
+                            <td class="check-icon">可视化报表，一键导出合规文档</td>
+                        </tr>
+                        <tr>
+                            <td>部署维护成本</td>
+                            <td>分散部署，难以统一</td>
+                            <td class="check-icon">集中管控，策略统一分发，运维高效</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <div class="section-title">
+                    <h2>常见问题</h2>
+                    <p>关于曼陀sp的常见疑问解答</p>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">曼陀sp支持哪些操作系统？</div>
+                        <div class="faq-answer">
+                            <p>曼陀sp支持Windows全系列操作系统，包括Windows 10/11及Windows Server服务器版本，同时也提供对主流Linux发行版的支持方案。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">数据加密后会影响业务系统性能吗？</div>
+                        <div class="faq-answer">
+                            <p>曼陀sp采用内核级驱动加密与透明加解密技术，对正常业务操作几乎无感知，对系统性能影响低于1%，确保业务连续性。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如果忘记管理员密码怎么办？</div>
+                        <div class="faq-answer">
+                            <p>系统设计了应急恢复机制，管理员可通过预设的安全密钥或服务器端的控制台进行密码重置，确保在紧急情况下能够恢复系统管理权限。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">是否提供定制化开发服务？</div>
+                        <div class="faq-answer">
+                            <p>是的，我们提供专业的定制化开发服务，可以根据企业的特殊业务流程和安全需求，对接现有业务系统并开发专属功能模块。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>开启您的数据安全之旅</h2>
+                <p>立即预约演示，获取专属的安全评估报告与解决方案</p>
+                <a href="#" class="btn">预约产品演示</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3><span>曼陀</span>sp</h3>
+                    <p>致力于为企业提供先进的数据安全与系统管理解决方案，守护数字资产，赋能企业安全发展。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>产品中心</h4>
+                    <ul>
+                        <li><a href="#">数据加密系统</a></li>
+                        <li><a href="#">DLP防泄漏</a></li>
+                        <li><a href="#">终端安全管理</a></li>
+                        <li><a href="#">文档安全网关</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>解决方案</h4>
+                    <ul>
+                        <li><a href="#">金融行业方案</a></li>
+                        <li><a href="#">政府机构方案</a></li>
+                        <li><a href="#">医疗健康方案</a></li>
+                        <li><a href="#">制造企业方案</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>支持与服务</h4>
+                    <ul>
+                        <li><a href="#">帮助文档</a></li>
+                        <li><a href="#">技术支持</a></li>
+                        <li><a href="#">下载中心</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 曼陀sp 版权所有. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <script>
+        // Simple FAQ Toggle Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                item.querySelector('.faq-question').addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
