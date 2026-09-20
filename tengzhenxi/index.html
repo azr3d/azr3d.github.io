@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>藤真希 - 优质日漫推荐与在线阅读指南</title>
+    <meta name="description" content="藤真希官方网站提供最新日漫资讯、高清漫画在线阅读、独家番剧介绍及粉丝社区互动。收录热门作品，提供流畅的阅读体验。">
+    <meta name="keywords" content="藤真希,日漫,漫画阅读,动漫资讯,日系漫画">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --spacing-unit: 1rem;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+            background-color: rgba(231, 76, 60, 0.05);
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #4a69bd 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .header-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+            nav ul {
+                margin-top: 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Section Styling */
+        .section-title {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 4px solid var(--accent-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: normal;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-cover {
+            width: 100%;
+            aspect-ratio: 2/3;
+            background-color: #eee;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 12px;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            background-color: #eee;
+            color: #666;
+        }
+
+        .badge.hot {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+
+        /* Sidebar */
+        .sidebar-section {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .ranking-list li {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .ranking-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .ranking-list li:nth-child(1) .rank-num { background-color: #ff9800; }
+        .ranking-list li:nth-child(2) .rank-num { background-color: #ffc107; }
+        .ranking-list li:nth-child(3) .rank-num { background-color: #ff5722; }
+
+        .rank-info {
+            flex-grow: 1;
+            overflow: hidden;
+        }
+
+        .rank-title {
+            font-size: 0.95rem;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .rank-chapter {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Update List */
+        .update-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .update-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .update-cover {
+            width: 60px;
+            height: 80px;
+            border-radius: 4px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .update-content {
+            flex: 1;
+        }
+
+        .update-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .update-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .update-time {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #ecf0f1;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #bdc3c7;
+        }
+
+        /* Ad Placeholder */
+        .ad-banner {
+            width: 100%;
+            height: 90px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <span>藤</span>真希
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">日漫分类</a></li>
+                <li><a href="#">更新排行</a></li>
+                <li><a href="#">作者专栏</a></li>
+                <li><a href="#">粉丝社区</a></li>
+            </ul>
+        </nav>
+        <button class="search-btn" aria-label="搜索">🔍</button>
+    </div>
+</header>
+
+<div class="hero">
+    <h1>探索日漫新视界</h1>
+    <p>汇集全球优质日漫资源，提供高清流畅的在线阅读体验，为二次元爱好者打造专属的数字乐园。</p>
+</div>
+
+<div class="container">
+    <!-- Main Content -->
+    <main>
+        <!-- Featured Section -->
+        <section>
+            <div class="section-title">
+                <h2>本周重磅推荐</h2>
+                <a href="#">查看全部 &rarr;</a>
+            </div>
+            <div class="card-grid">
+                <article class="card">
+                    <img src="https://picsum.photos/seed/comic1/300/450" alt="漫画封面" class="card-cover">
+                    <div class="card-body">
+                        <h3 class="card-title">青春的轨迹</h3>
+                        <div class="card-meta">
+                            <span class="badge hot">连载中</span>
+                            <span>12.5w阅读</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://picsum.photos/seed/comic2/300/450" alt="漫画封面" class="card-cover">
+                    <div class="card-body">
+                        <h3 class="card-title">都市奇幻录</h3>
+                        <div class="card-meta">
+                            <span class="badge">完结</span>
+                            <span>8.3w阅读</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://picsum.photos/seed/comic3/300/450" alt="漫画封面" class="card-cover">
+                    <div class="card-body">
+                        <h3 class="card-title">深海之恋</h3>
+                        <div class="card-meta">
+                            <span class="badge hot">热门</span>
+                            <span>20.1w阅读</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://picsum.photos/seed/comic4/300/450" alt="漫画封面" class="card-cover">
+                    <div class="card-body">
+                        <h3 class="card-title">机械之心</h3>
+                        <div class="card-meta">
+                            <span class="badge">连载中</span>
+                            <span>5.6w阅读</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Latest Updates -->
+        <section>
+            <div class="section-title">
+                <h2>最新更新</h2>
+                <a href="#">查看更多 &rarr;</a>
+            </div>
+            <div class="update-list">
+                <div class="update-item">
+                    <img src="https://picsum.photos/seed/late1/120/160" alt="封面" class="update-cover">
+                    <div class="update-content">
+                        <h3 class="update-title"><a href="#">异世界转生：魔法学院篇</a></h3>
+                        <p class="update-text">第 45 话：决战的号角</p>
+                        <span class="update-time">2小时前更新</span>
+                    </div>
+                </div>
+                <div class="update-item">
+                    <img src="https://picsum.photos/seed/late2/120/160" alt="封面" class="update-cover">
+                    <div class="update-content">
+                        <h3 class="update-title"><a href="#">侦探物语：无声的证词</a></h3>
+                        <p class="update-text">第 108 话：真相大白</p>
+                        <span class="update-time">5小时前更新</span>
+                    </div>
+                </div>
+                <div class="update-item">
+                    <img src="https://picsum.photos/seed/late3/120/160" alt="封面" class="update-cover">
+                    <div class="update-content">
+                        <h3 class="update-title"><a href="#">校园恋爱物语</a></h3>
+                        <p class="update-text">第 22 话：心跳的瞬间</p>
+                        <span class="update-time">8小时前更新</span>
+                    </div>
+                </div>
+                <div class="update-item">
+                    <img src="https://picsum.photos/seed/late4/120/160" alt="封面" class="update-cover">
+                    <div class="update-content">
+                        <h3 class="update-title"><a href="#">赛博朋克2077：边缘行者</a></h3>
+                        <p class="update-text">特别篇：夜之城的传说</p>
+                        <span class="update-time">昨天更新</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sidebar -->
+    <aside>
+        <div class="sidebar-section">
+            <div class="section-title">
+                <h3>阅读热度榜</h3>
+            </div>
+            <ul class="ranking-list">
+                <li>
+                    <span class="rank-num">1</span>
+                    <div class="rank-info">
+                        <div class="rank-title"><a href="#">全职猎人：重制版</a></div>
+                        <div class="rank-chapter">最新：第 380 话</div>
+                    </div>
+                </li>
+                <li>
+                    <span class="rank-num">2</span>
+                    <div class="rank-info">
+                        <div class="rank-title"><a href="#">鬼灭之刃：无限列车</a></div>
+                        <div class="rank-chapter">最新：最终卷</div>
+                    </div>
+                </li>
+                <li>
+                    <span class="rank-num">3</span>
+                    <div class="rank-info">
+                        <div class="rank-title"><a href="#">海贼王：和之国篇</a></div>
+                        <div class="rank-chapter">最新：第 1050 话</div>
+                    </div>
+                </li>
+                <li>
+                    <span class="rank-num">4</span>
+                    <div class="rank-info">
+                        <div class="rank-title"><a href="#">进击的巨人：终章</a></div>
+                        <div class="rank-chapter">完结</div>
+                    </div>
+                </li>
+                <li>
+                    <span class="rank-num">5</span>
+                    <div class="rank-info">
+                        <div class="rank-title"><a href="#">咒术回战</a></div>
+                        <div class="rank-chapter">最新：第 240 话</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="section-title">
+                <h3>分类导航</h3>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9rem;">
+                <a href="#">热血战斗</a>
+                <a href="#">恋爱校园</a>
+                <a href="#">悬疑推理</a>
+                <a href="#">奇幻冒险</a>
+                <a href="#">科幻未来</a>
+                <a href="#">搞笑日常</a>
+                <a href="#">历史战争</a>
+                <a href="#">职场励志</a>
+            </div>
+        </div>
+
+        <div class="ad-banner">
+            广告位预留
+        </div>
+    </aside>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h3>关于藤真希</h3>
+            <p style="font-size: 0.9rem; color: #bdc3c7; line-height: 1.8;">
+                藤真希致力于为漫画爱好者提供最优质的日漫阅读平台。我们精选全球热门作品，致力于打造沉浸式的二次元阅读体验。
+            </p>
+        </div>
+        <div class="footer-col">
+            <h3>快速链接</h3>
+            <ul>
+                <li><a href="#">网站地图</a></li>
+                <li><a href="#">关于我们</a></li>
+                <li><a href="#">联系方式</a></li>
+                <li><a href="#">加入我们</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>帮助中心</h3>
+            <ul>
+                <li><a href="#">阅读指南</a></li>
+                <li><a href="#">会员权益</a></li>
+                <li><a href="#">版权声明</a></li>
+                <li><a href="#">隐私政策</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2023 藤真希动漫平台 版权所有
+    </div>
+</footer>
+
+</body>
+  </html>
