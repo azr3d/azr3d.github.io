@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="特技山地车 - 专业特技山地车装备指南、骑行技巧教学、极限运动安全建议及社区资讯平台。提供硬尾、全避震车型推荐与改装攻略。">
+    <meta name="keywords" content="特技山地车,山地车特技,山地车技巧,硬尾山地车,攀爬车,山地车改装,山地车比赛">
+    <title>特技山地车-极限技巧与装备改装全攻略</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff5e00;
+            --primary-dark: #cc4d00;
+            --secondary-color: #1a1a1a;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #f9f9f9;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            height: var(--header-height);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://picsum.photos/seed/mountainbike/1600/900.jpg') no-repeat center center/cover;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        /* Bike Types Section */
+        .types-section {
+            padding: 5rem 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .type-card {
+            background: var(--bg-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .type-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .type-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .type-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .type-content {
+            padding: 1.5rem;
+        }
+
+        .type-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .type-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Techniques Section */
+        .techniques-section {
+            background-color: var(--bg-white);
+            padding: 5rem 0;
+        }
+
+        .technique-item {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .technique-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .technique-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .technique-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .technique-info {
+            flex: 1;
+        }
+
+        .technique-info h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .technique-info ul {
+            margin: 1.5rem 0;
+        }
+
+        .technique-info li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        .technique-info li::before {
+            content: '•';
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -0.2rem;
+        }
+
+        /* Safety & Gear Section */
+        .safety-section {
+            padding: 5rem 0;
+            background-color: #2c2c2c;
+            color: white;
+        }
+
+        .safety-section .section-title {
+            color: white;
+        }
+
+        .safety-section .section-title::after {
+            background-color: white;
+        }
+
+        .safety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .safety-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .safety-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .safety-card p {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Community/FAQ Section */
+        .faq-section {
+            padding: 5rem 0;
+            background-color: var(--bg-light);
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-white);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .faq-question:hover {
+            background-color: #fcfcfc;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-item:not(.active) .faq-question::after {
+            content: '+';
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #999;
+            padding: 3rem 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-col h5 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            margin-top: 3rem;
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container nav {
+                display: none;
+                position: absolute;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-container nav.active {
+                display: flex;
+            }
+
+            .nav-container nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .technique-item, .technique-item:nth-child(even) {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span>◆</span> 特技山地车
+            </a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#intro" class="active">入门指南</a></li>
+                    <li><a href="#bikes">车型分类</a></li>
+                    <li><a href="#skills">核心技巧</a></li>
+                    <li><a href="#gear">装备与安全</a></li>
+                    <li><a href="#community">社区讨论</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="intro">
+            <div class="hero-content">
+                <h1>挑战极限，征服地形</h1>
+                <p>探索特技山地车的世界，从基础操控到高阶跳跃技巧，获取专业的骑行指南与装备建议。</p>
+                <div style="margin-top: 2rem;">
+                    <a href="#skills" class="btn btn-primary">学习骑行技巧</a>
+                    <a href="#bikes" class="btn btn-outline" style="margin-left: 1rem; color: white; border-color: white;">查看车型推荐</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bike Types Section -->
+        <section class="types-section" id="bikes">
+            <div class="container">
+                <h2 class="section-title">车型分类与选择</h2>
+                <div class="grid-3">
+                    <article class="type-card">
+                        <div class="type-image">
+                            <img src="https://picsum.photos/seed/hardtail/400/300.jpg" alt="硬尾山地车">
+                        </div>
+                        <div class="type-content">
+                            <h3>硬尾山地车 (Hardtail)</h3>
+                            <p>前避震，后叉刚性。结构简单，重量轻，维护成本低，是练习基础特技和爬坡的首选车型。</p>
+                            <a href="#" style="color: var(--primary-color); font-weight: 600;">了解更多 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="type-card">
+                        <div class="type-image">
+                            <img src="https://picsum.photos/seed/fullsuspension/400/300.jpg" alt="全避震山地车">
+                        </div>
+                        <div class="type-content">
+                            <h3>全避震山地车 (Full Suspension)</h3>
+                            <p>前后均有避震系统。能够吸收剧烈冲击，提升在复杂地形下的稳定性和安全性，适合下坡和跳跃。</p>
+                            <a href="#" style="color: var(--primary-color); font-weight: 600;">了解更多 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="type-card">
+                        <div class="type-image">
+                            <img src="https://picsum.photos/seed/climber/400/300.jpg" alt="攀爬山地车">
+                        </div>
+                        <div class="type-content">
+                            <h3>攀爬山地车 (Climber)</h3>
+                            <p>轻量化设计，短行程避震，低齿比牙盘。专为垂直爬坡和精细操控而生，是特技爱好者的利器。</p>
+                            <a href="#" style="color: var(--primary-color); font-weight: 600;">了解更多 &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Techniques Section -->
+        <section class="techniques-section" id="skills">
+            <div class="container">
+                <h2 class="section-title">核心骑行技巧</h2>
+                
+                <article class="technique-item">
+                    <div class="technique-image">
+                        <img src="https://picsum.photos/seed/obstacle/600/400.jpg" alt="过障碍物技巧">
+                    </div>
+                    <div class="technique-info">
+                        <h3>障碍物通过</h3>
+                        <p>掌握如何平稳地通过石头、树根或台阶。关键在于保持重心的平稳，利用前叉的弹性吸收冲击，而不是试图完全锁死避震。</p>
+                        <ul>
+                            <li><strong>视线预判：</strong> 抬头看路，提前预判障碍物。</li>
+                            <li><strong>身体姿态：</strong> 身体微微前倾，膝盖微弯，保持弹性。</li>
+                            <li><strong>触点控制：</strong> 手腕放松，避免过度紧握车把。</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">观看教学视频</a>
+                    </div>
+                </article>
+
+                <article class="technique-item">
+                    <div class="technique-image">
+                        <img src="https://picsum.photos/seed/jump/600/400.jpg" alt="跳跃技巧">
+                    </div>
+                    <div class="technique-info">
+                        <h3>跳跃与落地</h3>
+                        <p>无论是小跳还是大跳，正确的起跳和落地姿势决定了安全性和控制力。落地时需确保双脚同时着地，身体重心位于车架中心。</p>
+                        <ul>
+                            <li><strong>起跳时机：</strong> 在车头即将离开地面的瞬间发力。</li>
+                            <li><strong>空中姿态：</strong> 腿部微曲，保持平衡，避免过度后仰或前扑。</li>
+                            <li><strong>落地准备：</strong> 落地前将车把拉回，双脚踩在踏板上。</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">观看教学视频</a>
+                    </div>
+                </article>
+
+                <article class="technique-item">
+                    <div class="technique-image">
+                        <img src="https://picsum.photos/seed/turn/600/400.jpg" alt="转弯技巧">
+                    </div>
+                    <div class="technique-info">
+                        <h3>动态转向与漂移</h3>
+                        <p>在高速或湿滑路面上，学会利用离心力和车架倾斜来控制转弯。特技山地车常涉及原地转向和侧向漂移，这需要极高的车架几何和车手技术配合。</p>
+                        <ul>
+                            <li><strong>身体倾斜：</strong> 与车架保持一致的角度。</li>
+                            <li><strong>重心转移：</strong> 向转弯内侧移动重心。</li>
+                            <li><strong>点刹辅助：</strong> 必要时使用前后刹车配合控制车速。</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">观看教学视频</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Safety & Gear Section -->
+        <section class="safety-section" id="gear">
+            <div class="container">
+                <h2 class="section-title">装备与安全防护</h2>
+                <div class="safety-grid">
+                    <div class="safety-card">
+                        <h4>🛡️ 头盔</h4>
+                        <p>特技骑行中头部是第一受保护部位。务必佩戴符合安全标准（如CPSC, EN1078）的全盔，并在发生碰撞后更换。</p>
+                    </div>
+                    <div class="safety-card">
+                        <h4>🦵 护具</h4>
+                        <p>护膝、护肘和护背能有效防止擦伤和骨折。特别是初学者，建议穿戴全套护具再进行特技练习。</p>
+                    </div>
+                    <div class="safety-card">
+                        <h4>👁️ 眼部保护</h4>
+                        <p>防风镜或骑行眼镜不仅能防止飞虫入眼，还能在碎石路面防止飞溅物划伤眼睛。</p>
+                    </div>
+                    <div class="safety-card">
+                        <h4>🔧 车辆检查</h4>
+                        <p>在出发前检查刹车、轮胎胎压、链条润滑度以及螺丝紧固情况，确保车辆处于最佳状态。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" id="community">
+            <div class="container">
+                <h2 class="section-title">常见问题解答</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">新手应该选择什么级别的特技山地车？</div>
+                        <div class="faq-answer">
+                            新手建议从入门级或中档的硬尾山地车开始，重点关注车架几何是否适合自己，以及刹车性能是否可靠。避免过早购买昂贵的全避震车型。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">特技骑行和普通山地车越野有什么区别？</div>
+                        <div class="faq-answer">
+                            普通山地越野更注重速度和耐力，路况相对固定；特技山地车则更强调技术动作，如跳跃、原地转向、攀爬和下坡，对车手技巧要求更高。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何提高跳跃落地的稳定性？</div>
+                        <div class="faq-answer">
+                            落地稳定性取决于起跳的时机和落地的姿势。确保双脚同时着地，膝盖微曲吸收冲击，视线看向落地点，保持身体平衡。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">山地车需要定期保养吗？</div>
+                        <div class="faq-answer">
+                            是的。特别是避震系统（前后叉）需要定期加注保养油。链条、刹车片和轮胎都需要根据使用频率进行清洁和更换。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col" style="flex: 2; min-width: 250px;">
+                    <a href="#" class="logo" style="color: white; margin-bottom: 1rem;">
+                        <span>◆</span> 特技山地车
+                    </a>
+                    <p style="color: #999; max-width: 400px;">
+                        致力于为广大山地车爱好者提供最专业的特技技巧教学、车型评测及安全骑行指南。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h5>快速链接</h5>
+                    <ul>
+                        <li><a href="#intro">首页</a></li>
+                        <li><a href="#bikes">车型推荐</a></li>
+                        <li><a href="#skills">技巧教学</a></li>
+                        <li><a href="#gear">安全装备</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>支持与联系</h5>
+                    <ul>
+                        <li><a href="#">加入社区</a></li>
+                        <li><a href="#">投稿指南</a></li>
+                        <li><a href="#">合作联系</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 特技山地车指南. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+        }
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    document.getElementById('main-nav').classList.remove('active');
+                    
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+  </html>
