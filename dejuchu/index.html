@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="的居处开门见山：探索简约现代家居设计的核心理念，如何通过布局规划实现空间的最大化利用与视觉通透感，打造舒适宜居的生活环境。">
+    <meta name="keywords" content="的居处,开门见山,家居设计,空间布局,现代装修,室内设计,极简主义,家居灵感">
+    <title>的居处-开门见山：现代家居空间布局与极简设计理念</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 1rem;
+            --max-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #1a252f;
+            transform: translateY(-2px);
+        }
+
+        /* Core Concept Section */
+        .section {
+            padding: 4rem 1.5rem;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .concept-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease;
+            border-top: 4px solid transparent;
+        }
+
+        .concept-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--accent-color);
+        }
+
+        .concept-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .concept-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .concept-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Layout Showcase */
+        .layout-showcase {
+            background-color: white;
+        }
+
+        .layout-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .step-item {
+            position: relative;
+            padding: 1.5rem;
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .step-content {
+            margin-top: 1rem;
+        }
+
+        .step-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background-color: #eee;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 1.5rem;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #f4f4f4;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            background-color: #fafafa;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            color: var(--text-secondary);
+            display: none;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 1rem;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 1.5rem 2rem;
+        }
+
+        .footer-grid {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            nav {
+                display: none; /* Simplified mobile handling */
+            }
+
+            .header-container {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">的居处<span>.</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#concept">设计理念</a></li>
+                    <li><a href="#layout">布局指南</a></li>
+                    <li><a href="#gallery">案例展示</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>开门见山，回归本真</h1>
+                <p>探索“的居处”的极简设计哲学，如何通过通透的空间布局与功能分区，实现家居环境的“开门见山”与舒适宜居。</p>
+                <a href="#concept" class="cta-button">了解设计理念</a>
+            </div>
+        </section>
+
+        <!-- Core Concept Section -->
+        <section id="concept" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>什么是“开门见山”的居处</h2>
+                    <p>在室内设计与装修语境中，“开门见山”并非指物理上的直视，而是一种空间美学与心理感受的极致追求。</p>
+                </div>
+                <div class="concept-grid">
+                    <article class="concept-card">
+                        <div class="concept-icon">👁️</div>
+                        <h3>视觉通透</h3>
+                        <p>摒弃繁杂的隔断与装饰，通过开放式布局让视线自由流动。玄关即客厅，动线一目了然，空间显得更加宽敞明亮。</p>
+                    </article>
+                    <article class="concept-card">
+                        <div class="concept-icon">🧘</div>
+                        <h3>心境澄明</h3>
+                        <p>当进入家门的那一刻，没有阻挡，没有杂乱，只有纯粹的生活气息。这种直接的视觉反馈能迅速卸下外界压力，带来宁静。</p>
+                    </article>
+                    <article class="concept-card">
+                        <div class="concept-icon">📐</div>
+                        <h3>功能清晰</h3>
+                        <p>布局不拖泥带水，每一寸空间都有其明确的功能定义。动线规划合理，生活场景自然展开，拒绝无效空间。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layout Guide Section -->
+        <section id="layout" class="section layout-showcase">
+            <div class="container">
+                <div class="section-title">
+                    <h2>布局设计的三大原则</h2>
+                    <p>如何在实际装修中实现“开门见山”的效果？遵循以下三个核心步骤。</p>
+                </div>
+                <div class="layout-steps">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>拆除非承重隔断</h4>
+                            <p>检查墙体结构，对于非承重的隔断墙（如客厅与阳台之间的墙、厨房与餐厅之间的墙）进行拆除，扩大视野范围。</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>优化玄关设计</h4>
+                            <p>玄关不应成为视觉的终点。设计大面积的镜面或通透的鞋柜，使进入大门后的第一眼能直接看到客厅深处，拉长空间纵深感。</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>统一地面材质</h4>
+                            <p>尽量减少地面材质的硬性分割（如不同瓷砖的拼贴），使用同一色系或同一材质的通铺设计，强化整体感。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>设计灵感案例</h2>
+                    <p>从现代简约到北欧风格，看看“的居处”如何通过光线与线条演绎“开门见山”。</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/interior1/400/300" alt="现代简约客厅">
+                        <div class="gallery-overlay">
+                            <h4>极简白调</h4>
+                            <p>大面积留白，光线自然流淌</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/interior2/400/300" alt="通透厨房与餐厅">
+                        <div class="gallery-overlay">
+                            <h4>LDK一体化</h4>
+                            <p>客餐厨无界限，社交与烹饪融合</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/interior3/400/300" alt="落地窗书房">
+                        <div class="gallery-overlay">
+                            <h4>落地窗视野</h4>
+                            <p>引入自然光，推窗即是风景</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/interior4/400/300" alt="原木色家居">
+                        <div class="gallery-overlay">
+                            <h4>原木自然风</h4>
+                            <p>材质纯净，回归生活本质</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section faq-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>常见问题解答</h2>
+                    <p>关于“开门见山”家居设计的疑问与解答。</p>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            开门见山的设计会不会显得空间太单调？
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>不会。单调往往源于色彩的匮乏或设计的无序。“开门见山”强调的是逻辑清晰和视觉通透，通过材质的对比、光影的变化以及软装的点缀，完全可以营造出既通透又不失层次感的空间。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            小户型如何实现“开门见山”？
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>小户型更需要“开门见山”来缓解压抑感。核心策略是减少实体墙，增加收纳柜体的通透性（如玻璃门柜），并使用浅色系。将玄关与客厅打通，利用灯光延伸视觉，是小户型的最佳方案。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            这种设计风格适合什么样的家庭？
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>这种风格非常适合追求生活效率、注重空间利用率以及喜爱简约生活方式的家庭。特别是对于经常在家办公、喜欢招待朋友聚会，或者希望家中保持整洁有序的人群来说，是理想的选择。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 1rem; color: white;">的居处<span>.</span></div>
+                <p style="color: #bdc3c7; font-size: 0.9rem;">致力于分享现代家居设计理念，为您打造通透、舒适、实用的理想居所。</p>
+            </div>
+            <div class="footer-col">
+                <h4>设计理念</h4>
+                <ul>
+                    <li><a href="#">极简主义</a></li>
+                    <li><a href="#">功能主义</a></li>
+                    <li><a href="#">空间美学</a></li>
+                    <li><a href="#">光影运用</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>资源指南</h4>
+                <ul>
+                    <li><a href="#">装修风格库</a></li>
+                    <li><a href="#">色彩搭配表</a></li>
+                    <li><a href="#">家具选购</a></li>
+                    <li><a href="#">避坑指南</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li><a href="#">合作咨询</a></li>
+                    <li><a href="#">投稿建议</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 的居处. 保留所有权利. 本站内容仅供设计与灵感参考。</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ accordion logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
